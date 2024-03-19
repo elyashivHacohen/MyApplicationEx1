@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etPassword, etConfirmPassword;
-    Button btEnter;
+    Button butEnter;
 
 
     @Override
@@ -24,19 +24,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void initViews() {
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etUserPasswordConfirm);
-        btEnter = findViewById(R.id.btEnter);
-        btEnter.setOnClickListener(this);
+        butEnter = findViewById(R.id.btEnter);
+        butEnter.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if(isSamePassword()) {
-            btEnter.setText("success");
+            butEnter.setText("success");
             Intent go = new Intent(this,MainActivity2.class);
             startActivity(go);
         }
         else
-            btEnter.setText("No sames password access not authorized");
+            butEnter.setText("No sames password access not authorized");
     }
     public boolean isSamePassword(){
         return (etPassword.getText().toString().equals(etConfirmPassword.getText().toString()));
